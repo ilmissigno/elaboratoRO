@@ -44,7 +44,16 @@ public class mainAlgoritmo {
 	}
 	*/
 	public static void main(String[] args) {
-		
+		mainAlgoritmo main=new mainAlgoritmo();
+		Popolazione popolazione=new Popolazione(Algoritmo_Genetico.DIM_POPOLAZIONE,main.initialRoute);
+		popolazione.ordinamento_per_Fitness();
+		main.printPopolazione(popolazione);
+	}
+	public void printPopolazione(Popolazione popolazione) {
+		popolazione.getItinerari().forEach(x->{ System.out.println(Arrays.toString(x.getCitta().toArray())+"|"+
+				String.format("%.4f", x.getFitness())+"| "+ String.format("%.2f", x.calcolaPercorsoTotale()));
+		});
+		System.out.println("");
 	}
 
 }
